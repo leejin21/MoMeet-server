@@ -38,7 +38,7 @@ dotenv:
 - get, post
 - issues 리스트로 추가할 수 있게 하기
 2. connect with DB
-table 작성하기
+- table 작성하기
 3. 소켓으로 실시간 확인
 4. 어드민 주기, 회원가입 로그인 등
 5. 프론트엔드(웹)

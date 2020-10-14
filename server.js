@@ -1,5 +1,6 @@
-const DummyData = require("./DummyData");
+const DummyData = require("./DummyData")
 const Validation = require("./validation")
+const DB = require('./db/index')
 
 const validateMinutes = Validation.validateMinutes
 const Minutes = DummyData.Minutes
@@ -17,13 +18,22 @@ app.use(bodyParser.json())
 // GET
 app.get('/minutes/:company', (req, res) => {
     // look up the minutes
-    const message = Minutes.map(m => ({
-        when: m.when,
-        where: m.where,
-        who: m.who,
-        issues: m.issues
-    }))
-    res.send(message)
+    // const message = Minutes.map(m => ({
+    //     when: m.when,
+    //     where: m.where,
+    //     who: m.who,
+    //     issues: m.issues
+    // }))
+    // res.send(message)
+
+    try {
+        let results = await DB.one(req.params.company);
+        res.json(results)
+    } catch (e) {
+        console.log(e)
+        res.sendStatus(500);
+    }
+
 })
 
 // POST
