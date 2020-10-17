@@ -2,7 +2,7 @@
   "name": "express-demo",
   "version": "1.0.0",
   "description": "demo of express",
-  "main": "app.js",
+  "main": "server.js",
   "scripts": {
     "server": "nodemon server.js"
   },

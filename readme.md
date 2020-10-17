@@ -42,3 +42,31 @@ dotenv:
 3. 소켓으로 실시간 확인
 4. 어드민 주기, 회원가입 로그인 등
 5. 프론트엔드(웹)
+
+
+## nodejs main 명령어
+
+``` 
+npm init
+# 새로운 프로젝트나 명령어를 만들 때 사용
+
+npm install 패키지@버전
+
+npm install 패키지 --save-dev
+# package.json에서 devDependencies에 패키지 이름을 올릴 수 있음.
+
+npm install 주소
+# 깃허브 주소에 있는 패키지 다운받을 수 있음.
+
+npm ls
+# 다운받은 패키지 조회
+
+```
+
+
+목표: package.json 만 있으면 명령어 하나로 dependent한 패키지 다운 받는 방법 찾기
+https://docs.npmjs.com/files/package.json
+
+
+dotenv 관련 설명
+https://velog.io/@public_danuel/process-env-on-node-js

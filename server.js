@@ -1,10 +1,9 @@
 const DummyData = require("./DummyData")
 const Validation = require("./validation")
-const DB = require('./db/index')
+// const DB = require('./db/index')
+const minutes = require('./router/minutes')
 
 const validateMinutes = Validation.validateMinutes
-const Minutes = DummyData.Minutes
-const Meeting = DummyData.Meeting
 
 var express = require('express')
 var app = express()
@@ -16,39 +15,30 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(bodyParser.json())
 
 // GET
-app.get('/minutes/:company', (req, res) => {
-    // look up the minutes
-    // const message = Minutes.map(m => ({
-    //     when: m.when,
-    //     where: m.where,
-    //     who: m.who,
-    //     issues: m.issues
-    // }))
-    // res.send(message)
+// app.get('/minutes/:company', (req, res) => {
+// look up the minutes
+// const message = Minutes.map(m => ({
+//     when: m.when,
+//     where: m.where,
+//     who: m.who,
+//     issues: m.issues
+// }))
+// res.send(message)
 
-    try {
-        let results = await DB.one(req.params.company);
-        res.json(results)
-    } catch (e) {
-        console.log(e)
-        res.sendStatus(500);
-    }
+// try {
+// let results = await DB.one(req.params.company);
+// res.json(results)
+// } catch (e) {
+// console.log(e)
+// res.sendStatus(500);
+// }
 
-})
+// })
+
+app.use('/minutes', minutes)
 
 // POST
-app.post('/minutes', (req, res) => {
-    const { error, value } = validateMinutes(req.body.when)
 
-    if (error) {
-        res.status(400).send({ error: error.details[0].message })
-    } else {
-        when = new Date(parseInt(value.year), parseInt(value.month) - 1, parseInt(value.day))
-        const reserve = new Meeting(when, req.body.where, req.body.who, req.body.issues)
-        Minutes.push(reserve)
-        res.send(reserve)
-    }
-})
 
 
 // app.delete('/minutes/:company', (req, res) => {
