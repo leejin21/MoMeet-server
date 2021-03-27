@@ -1,18 +1,17 @@
-const DummyData = require("./DummyData")
-const Validation = require("./validation")
+// const DummyData = require("./src/DummyData")
+// const Validation = require("./src/validation")
 // const DB = require('./db/index')
-const minutes = require('./router/minutes')
+const minutes = require("./router/minutes");
 
-const validateMinutes = Validation.validateMinutes
+// const validateMinutes = Validation.validateMinutes
 
-var express = require('express')
-var app = express()
-var bodyParser = require('body-parser')
+var express = require("express");
+var app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
 
 // Always add your routes after the middleware functions, like in the above code.
 // FIXED: express에서 express.json()의 순서가 중요한 듯?
-app.use(bodyParser.urlencoded({ extended: true }))
-app.use(bodyParser.json())
 
 // GET
 // app.get('/minutes/:company', (req, res) => {
@@ -35,11 +34,9 @@ app.use(bodyParser.json())
 
 // })
 
-app.use('/minutes', minutes)
+app.use("/minutes", minutes);
 
 // POST
-
-
 
 // app.delete('/minutes/:company', (req, res) => {
 // Look up the minutes
@@ -50,8 +47,7 @@ app.use('/minutes', minutes)
 // Return the same minutes
 // })
 
-
 // cmd >> export PORT=8000
 // 을 하면 process.env.PORT = 8000 이 됨.
-const port = process.env.PORT || 8000
-app.listen(port, () => console.log('Listening on port 8000...'))
+const port = process.env.PORT || 8000;
+app.listen(port, () => console.log("Listening on port 8000..."));
