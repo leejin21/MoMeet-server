@@ -1,12 +1,19 @@
+# momeet-server
+
+회의록 작성하는 프로젝트의 서버.
+주로 토이 프로젝트로 활용하며, 기능을 이것저것 덧붙이면서 tdd 활용할 예정
+
+블로그: https://www.notion.so/functions-ea4d27fc1ac941098ef56d35f0ef4405
+
 ## 자주 쓰는 명령어
 
 ```
 npm run server
+npm test
 
 # package install comman
 npm install --save [package]
 ```
-
 
 ## environment settings
 
@@ -23,30 +30,32 @@ nodemon: 2.0.4
 
 명령어: `sudo npm i -g nodemon`
 참고: https://www.npmjs.com/package/nodemon?activeTab=readme
-비고: nodemon은 node의 대체 wrapper임. 
+비고: nodemon은 node의 대체 wrapper임.
 
-dotenv: 
+dotenv:
 명령어: `npm i --save-dev dotenv`
 참고: https://www.youtube.com/watch?v=fgTGADljAeg
-
-
 
 ## Issues
 
 개발 진행
+
 1. basic
-- get, post
-- issues 리스트로 추가할 수 있게 하기
+
+-   get, post
+-   issues 리스트로 추가할 수 있게 하기
+
 2. connect with DB
-- table 작성하기
+
+-   table 작성하기
+
 3. 소켓으로 실시간 확인
 4. 어드민 주기, 회원가입 로그인 등
 5. 프론트엔드(웹)
 
-
 ## nodejs main 명령어
 
-``` 
+```
 npm init
 # 새로운 프로젝트나 명령어를 만들 때 사용
 
@@ -63,10 +72,8 @@ npm ls
 
 ```
 
-
 목표: package.json 만 있으면 명령어 하나로 dependent한 패키지 다운 받는 방법 찾기
 https://docs.npmjs.com/files/package.json
-
 
 dotenv 관련 설명
 https://velog.io/@public_danuel/process-env-on-node-js

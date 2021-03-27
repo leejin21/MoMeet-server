@@ -15,7 +15,7 @@ router.use(function timeLog(req, res, next) {
     next();
 });
 
-router.post("/mins", (req, res) => {
+router.post("/minutes", (req, res) => {
     const { body } = req;
 
     const reserve = new Meeting(
@@ -51,14 +51,17 @@ router.post("/mins", (req, res) => {
     // }
 });
 
-router.get("/getAll", (req, res) => {
-    console.log("hello");
-    res.send("hello there");
+router.get("/minutes/:mid", (req, res) => {
+    const temp = Minutes.find((min) => {
+        return min.mid === parseInt(req.params.mid);
+    });
+    console.log(temp);
+    res.send(temp);
 });
 
-router.get("/some", (req, res) => {
-    console.log("some");
-    res.send("something special");
+router.get("/test", (req, res) => {
+    console.log("test");
+    res.send("get test success");
 });
 
 module.exports = router;
